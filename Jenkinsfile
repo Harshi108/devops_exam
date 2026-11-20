@@ -17,15 +17,16 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application'
+       stage('Deploy') {
+    steps {
+        echo 'Deploying application'
 
-                bat '''
-                if not exist deployment mkdir deployment
-                copy /Y app.py deployment\\app.py
-                '''
-            }
-        }
+        bat '''
+        if not exist deployment mkdir deployment
+        copy /Y app.py deployment\\app.py
+        copy /Y requirements.txt deployment\\requirements.txt
+        '''
+    }
+}
     }
 }
