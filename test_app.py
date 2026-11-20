@@ -9,7 +9,7 @@ class TestFlaskApp(unittest.TestCase):
     def test_home(self):
         response = self.client.get('/')
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 404)
         self.assertEqual(
             response.get_data(as_text=True),
             "Hello, Jenkins!"
